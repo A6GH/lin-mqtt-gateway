@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lin_mqtt_config>
+	<lin_params>
+		<device_path>/dev/ttyAMA0</device_path>
+		<module_path>./sllin.ko</module_path>
+		<baud_rate>9600</baud_rate>
+	</lin_params>
+	<mqtt_params>
+		<broker>
+			<name>HiveMQ</name>
+			<address>tcp://broker.hivemq.com:1883</address>
+		</broker>
+		<client>
+			<name>LIN_MQTT_GATEWAY</name>
+		</client>
+		<topics>
+			<publication>
+				<topic>
+					<name>LIN2MQTT_LOGGER</name>
+					<qos>2</qos>
+					<lin_id>all</lin_id>
+				</topic>
+				<topic>
+					<name>LIN2MQTT_INDICATOR</name>
+					<qos>2</qos>
+					<lin_id>0x05</lin_id>
+				</topic>
+			</publication>
+			<subscription>
+				<topic>
+					<name>MQTT2LIN_LOGGER</name>
+					<qos>2</qos>
+					<lin_id>all</lin_id>
+				</topic>
+			</subscription>
+		</topics>
+		<timeout>10000L</timeout>
+	</mqtt_params>
+</lin_mqtt_config>

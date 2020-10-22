@@ -1,0 +1,10 @@
+requirements:
+  paho.mqtt.c library: https://github.com/eclipse/paho.mqtt.c
+  xml2 library: sudo apt install libxml2 libxml2-dev (might have to copy /usr/include/libxml2/libxml to /usr/include/libxml)
+  netlink library : sudo apt install libnl-3-dev libnl-route-3-dev
+  
+build:
+  gcc ./src/*.c -o ./lin_mqtt_gateway -lpaho-mqtt3a -lxml2 -lnl-3 -lnl-route-3 -lpthread
+
+run:
+  sudo ./lin_mqtt_gateway ./lin_mqtt_config.xml
